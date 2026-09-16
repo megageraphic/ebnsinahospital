@@ -20,6 +20,9 @@
         body {
             background-color: #f4f7f6;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* الهيدر */
@@ -62,6 +65,7 @@
             max-width: 1100px;
             margin: 30px auto;
             padding: 0 20px;
+            flex: 1;
         }
 
         .hero-title {
@@ -234,7 +238,62 @@
             background-color: #e60000;
         }
 
-        /* الأزرار العائمة */
+        /* --------------------------------------------------- */
+        /* الفوتر أسفل الصفحة */
+        /* --------------------------------------------------- */
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .footer-credits {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 700;
+            color: #d4b64e;
+        }
+
+        .footer-credits img {
+            width: 40px;
+            height: auto;
+            border-radius: 4px;
+            object-fit: contain;
+        }
+
+        .footer-btn {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: #e6ca65;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .footer-btn:hover {
+            background-color: #d4b64e;
+            transform: scale(1.1);
+        }
+
+        /* --------------------------------------------------- */
+        /* الأزرار العائمة وتأثير التوهج (Glowing Ripples) */
+        /* --------------------------------------------------- */
         .floating-buttons {
             position: fixed;
             bottom: 20px;
@@ -257,10 +316,71 @@
             font-size: 22px;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, background-color 0.2s ease;
         }
 
+        .float-btn i {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.2s ease;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .float-facebook { background-color: #0d47a1; }
         .float-whatsapp { background-color: #25d366; }
         .float-call { background-color: #0275d8; }
+
+        .float-facebook::before,
+        .float-facebook::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            border: 2px solid #0d47a1;
+            animation: rippleGlow 2s infinite ease-out;
+            z-index: 1;
+        }
+        .float-facebook::after { animation-delay: 0.6s; }
+
+        .float-whatsapp::before,
+        .float-whatsapp::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            border: 2px solid #25d366;
+            animation: rippleGlow 2s infinite ease-out;
+            z-index: 1;
+        }
+        .float-whatsapp::after { animation-delay: 0.6s; }
+
+        .float-call::before,
+        .float-call::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            border: 2px solid #0275d8;
+            animation: rippleGlow 2s infinite ease-out;
+            z-index: 1;
+        }
+        .float-call::after { animation-delay: 0.6s; }
+
+        @keyframes rippleGlow {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+                box-shadow: 0 0 5px currentColor;
+            }
+            100% {
+                transform: scale(1.7);
+                opacity: 0;
+                box-shadow: 0 0 15px currentColor;
+            }
+        }
     </style>
 </head>
 <body>
@@ -271,7 +391,6 @@
             <img src="Logo HD.png" alt="شعار مستشفى ابن سينا">
             <span>مستشفى ابن سينا</span>
         </div>
-        <!-- تم تعديل المسار إلى index.html -->
         <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> الصفحة الرئيسية</a>
     </header>
 
@@ -340,15 +459,32 @@
         </div>
     </div>
 
-    <!-- الأزرار العائمة للتواصل -->
+    <!-- الأزرار العائمة للتواصل المتوهجة -->
     <div class="floating-buttons">
-        <a href="https://wa.me/201222243157" target="_blank" class="float-btn float-whatsapp">
+        <!-- زر فيسبوك (أزرق غامق) -->
+        <a href="https://web.facebook.com/IbnSinaaa/?locale=ar_AR&_rdc=1&_rdr#" target="_blank" class="float-btn float-facebook" title="صفحة فيسبوك">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <!-- زر واتساب -->
+        <a href="https://wa.me/201222243157" target="_blank" class="float-btn float-whatsapp" title="مراسلة واتساب">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <a href="tel:01222243157" class="float-btn float-call">
+        <!-- زر الاتصال -->
+        <a href="tel:01222243157" class="float-btn float-call" title="اتصال هاتفي">
             <i class="fa-solid fa-phone"></i>
         </a>
     </div>
+
+    <!-- الفوتر أسفل الصفحة -->
+    <footer>
+        <p>&copy; جميع الحقوق محفوظة - مستشفي ابن سينا </p>
+        <div class="footer-credits">
+            <span>تصميم بواسطة</span>
+            <img src="100.png" alt="شعار التصميم">
+            <a href="tel:01010255123" class="footer-btn" title="اتصال هاتفي"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://wa.me/201010255123" target="_blank" class="footer-btn" title="مراسلة عبر الواتساب"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
