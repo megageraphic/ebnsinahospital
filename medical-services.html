@@ -179,6 +179,82 @@
         .close-lightbox:hover {
             color: #e60000;
         }
+
+        /* ==========================================
+           تنسيقات الفوتر المستقلة
+           ========================================== */
+        footer.custom-site-footer {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+            gap: 15px !important;
+            padding: 15px 30px !important;
+            background-color: #ffffff !important;
+            border-top: 1px solid #e9ecef !important;
+            direction: rtl !important;
+            box-sizing: border-box !important;
+            width: 100% !important;
+            margin-top: 40px !important;
+        }
+
+        footer.custom-site-footer p.custom-footer-copy {
+            margin: 0 !important;
+            padding: 0 !important;
+            font-size: 14px !important;
+            color: #495057 !important;
+        }
+
+        footer.custom-site-footer .custom-footer-credits {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            font-size: 14px !important;
+            color: #495057 !important;
+        }
+
+        footer.custom-site-footer .custom-footer-logo {
+            height: 30px !important;
+            width: auto !important;
+            max-height: 30px !important;
+            object-fit: contain !important;
+            vertical-align: middle !important;
+        }
+
+        footer.custom-site-footer .custom-footer-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 35px !important;
+            height: 35px !important;
+            border-radius: 50% !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-size: 16px !important;
+            transition: transform 0.2s ease, opacity 0.2s ease !important;
+        }
+
+        footer.custom-site-footer .custom-footer-btn.phone-btn {
+            background-color: #0d6efd !important;
+        }
+
+        footer.custom-site-footer .custom-footer-btn.whatsapp-btn {
+            background-color: #25d366 !important;
+        }
+
+        footer.custom-site-footer .custom-footer-btn:hover {
+            opacity: 0.85 !important;
+            transform: translateY(-2px) !important;
+        }
+
+        @media (max-width: 576px) {
+            footer.custom-site-footer {
+                justify-content: center !important;
+                text-align: center !important;
+                flex-direction: column !important;
+                padding: 15px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -188,7 +264,7 @@
             <img src="Logo HD.png" alt="شعار مستشفى ابن سينا">
             <span>مستشفى ابن سينا</span>
         </div>
-        <a href="TEST.html" class="nav-link"><i class="fa-solid fa-house"></i> الصفحة الرئيسية</a>
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> الصفحة الرئيسية</a>
     </header>
 
     <div class="container">
@@ -198,7 +274,7 @@
         <div class="gallery-grid" id="galleryGrid"></div>
 
         <div class="back-btn-container">
-            <a href="TEST.html" class="back-btn">
+            <a href="home.html" class="back-btn">
                 <i class="fa-solid fa-arrow-right"></i>
                 <span>الرجوع للخلف</span>
             </a>
@@ -211,6 +287,22 @@
             <img id="lightboxImg" src="" alt="عرض مكبر">
         </div>
     </div>
+
+    <!-- بداية الفوتر -->
+    <footer class="custom-site-footer">
+        <p class="custom-footer-copy">&copy; جميع الحقوق محفوظة - مستشفى ابن سينا</p>
+        <div class="custom-footer-credits">
+            <span>تصميم بواسطة</span>
+            <img src="100.png" alt="شعار التصميم" class="custom-footer-logo">
+            <a href="tel:01010255123" class="custom-footer-btn phone-btn" title="اتصال هاتفي" target="_blank" rel="noopener">
+                <i class="fa-solid fa-phone"></i>
+            </a>
+            <a href="https://wa.me/201010255123" class="custom-footer-btn whatsapp-btn" title="مراسلة عبر الواتساب" target="_blank" rel="noopener">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+    </footer>
+    <!-- نهاية الفوتر -->
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
